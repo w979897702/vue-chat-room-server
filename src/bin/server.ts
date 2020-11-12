@@ -4,22 +4,24 @@
  * Module dependencies.
  */
 
-var app = require('../app');
 var debug = require('debug')('demo:server');
 var http = require('http');
+import App from '../app';
+import socket from '../socket';
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '9090');
+var port = normalizePort(process.env.PORT || '9099');
 // app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app.callback());
+var server = http.createServer(App.callback());
+socket(server);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -33,7 +35,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val: string) {
 	var port = parseInt(val, 10);
 
 	if (isNaN(port)) {
@@ -53,7 +55,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error: any) {
 	if (error.syscall !== 'listen') {
 		throw error;
 	}

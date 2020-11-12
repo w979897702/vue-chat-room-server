@@ -1,15 +1,14 @@
 var router = require('koa-router')();
-var mongoose = require('mongoose');
-router.get('/', function* (next) {
+router.get('/', function* (next: any) {
 	yield this.render('index', {
 		title: 'Hello World Koa!',
 	});
 });
 
-router.get('/foo', function* (next) {
+router.get('/foo', function* (next: any) {
 	yield this.render('index', {
 		title: 'Hello World foo!',
 	});
 });
 
-module.exports = router;
+export default router;

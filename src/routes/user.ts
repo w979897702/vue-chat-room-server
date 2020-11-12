@@ -1,8 +1,8 @@
 var router = require('koa-router')();
-var { UserList } = require('../config/model');
+import { UserList } from '../config/model';
 router.prefix('/user');
 
-router.post('/login', async function (next) {
+router.post('/login', async function (next: any) {
 	const data = this.request.body;
 	const { name, password } = data;
 	console.log(name, password);
@@ -26,7 +26,7 @@ router.post('/login', async function (next) {
 	}
 });
 
-router.post('/register', async function (next) {
+router.post('/register', async function (next: any) {
 	const data = this.request.body;
 	const { name, password } = data;
 	console.log(name, password);
@@ -46,4 +46,4 @@ router.post('/register', async function (next) {
 	}
 });
 
-module.exports = router;
+export default router;
