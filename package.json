@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "nodemon dist/bin/server",
 		"dev": "./node_modules/.bin/nodemon bin/server",
-		"prd": "pm2 start bin/server",
+		"prd": "pm2 start npm -- run start",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"watch-server": "nodemon --watch './src/**/*' -e ts,tsx --exec 'tsc'"
 	},
